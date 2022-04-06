@@ -1,0 +1,44 @@
+{
+  "name": "pgp-seed-api",
+  "version": "0.1.0",
+  "description": "API for generating PGP Seed",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "ts-node src/main.ts",
+    "start:dev": "tsc-watch --onSuccess \"node dist/main.js\"",
+    "build": "tsc -b",
+    "test": "jest --config jestconfig.json",
+    "lint": "eslint src --ext .js,.ts",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test && npm run lint",
+    "preversion": "npm run lint",
+    "version": "npm run format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "coverageDirectory": "./coverage/",
+    "collectCoverage": true,
+    "testMatch": [
+      "**/tests/**/*.test.js"
+    ]
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/jest": "^27.4.1",
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.17.0",
+    "eslint": "^8.12.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.5.1",
+    "ts-jest": "^27.1.4",
+    "ts-node": "^10.7.0",
+    "tsc-watch": "^5.0.2"
+  }
+}
