@@ -12,8 +12,8 @@
       "jest": true
     },
     "rules": {
-      "prettier/prettier": "warn",
-      "@typescript-eslint/no-namespace": "warn",
-      "@typescript-eslint/no-inferrable-types": "warn"
+      "prettier/prettier": "error",
+      "@typescript-eslint/no-namespace": "error",
+      "@typescript-eslint/no-inferrable-types": "error"
     }
   }
