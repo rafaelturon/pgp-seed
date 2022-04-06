@@ -3,8 +3,8 @@ import { GenerateSeedUseCase } from '../../../modules/seeds/useCases/generateSee
 describe('GenerateSeed', () => {
     it('should create seed with valid id', async () => {
         let useCase: GenerateSeedUseCase = new GenerateSeedUseCase()
-        //const result = await useCase.execute("12313131123131311231313112313131")
-        const result = await useCase.execute("1231313112313131")
+        const result = await useCase.execute("12313131123131311231313112313131")
+        //const result = await useCase.execute("1231313112313131")
         if (result.isRight()) {
             expect(result.value.getValue().id).not.toBeUndefined()
         } else {
