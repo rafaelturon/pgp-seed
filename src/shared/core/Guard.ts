@@ -12,7 +12,7 @@ export interface IGuardResult {
   
   export class Guard {
     public static combine (guardResults: IGuardResult[]): IGuardResult {
-      for (let result of guardResults) {
+      for (const result of guardResults) {
         if (result.succeeded === false) return result;
       }
   
@@ -55,7 +55,7 @@ export interface IGuardResult {
     }
   
     public static againstNullOrUndefinedBulk(args: GuardArgumentCollection): IGuardResult {
-      for (let arg of args) {
+      for (const arg of args) {
         const result = this.againstNullOrUndefined(arg.argument, arg.argumentName);
         if (!result.succeeded) return result;
       }
@@ -65,7 +65,7 @@ export interface IGuardResult {
   
     public static isOneOf (value: any, validValues: any[], argumentName: string) : IGuardResult {
       let isValid = false;
-      for (let validValue of validValues) {
+      for (const validValue of validValues) {
         if (value === validValue) {
           isValid = true;
         }
@@ -92,7 +92,7 @@ export interface IGuardResult {
   
     public static allInRange (numbers: number[], min: number, max: number, argumentName: string) : IGuardResult {
       let failingResult: IGuardResult = null;
-      for(let num of numbers) {
+      for(const num of numbers) {
         const numIsInRangeResult = this.inRange(num, min, max, argumentName);
         if (!numIsInRangeResult.succeeded) failingResult = numIsInRangeResult;
       }
